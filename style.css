@@ -54,3 +54,11 @@ html {
   align-items: center;
   height: 100vh;
 }
+
+.content-caixa {
+  display:flex;
+  flex-flow: row wrap;
+  margin-top: 5vh;
+  margin-left: 10%;
+  width: 60%;
+}
