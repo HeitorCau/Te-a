@@ -1,0 +1,49 @@
+:root {
+  --primary: #20BEAD;
+}
+
+*, *:after, *:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.navbar {
+  flex: 1 0 0;
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  flex: 10 0 0;
+}
+
+.list {
+  list-style: none;
+}
+
+.list .list-item  a {
+  color: white;
+  text-decoration: none;
+}
+
+.list .list-item.active  a {
+  text-decoration: underline;
+}
+
+.list .list-item  a:hover {
+  text-decoration: underline;
+}
