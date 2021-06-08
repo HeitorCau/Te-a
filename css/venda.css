@@ -1,0 +1,53 @@
+@import url('./style.css');
+
+.logo-client {
+  color: white;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 28px;
+}
+
+.content {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding-left: 10em;
+}
+
+@media (max-width: 900px) {
+  .content {
+    padding-left: 1em;
+  }
+  .table__prices {
+    display: none;
+  }
+  html {
+    font-size: 12px;
+  }
+  .table {
+    width: 90%!important;
+  }
+}
+
+h2, li, li > a {
+  color: white
+}
+
+li {
+  list-style-type: none;
+}
+
+.table {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+
+.avaliable-modules {
+  width: 100%;
+}
+
