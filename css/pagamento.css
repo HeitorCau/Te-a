@@ -1,57 +1,45 @@
 main {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.container {
-  width: auto;
-  min-width: 500px; 
+  font-size: 100%;
 }
 
 .cartao-container {
-  min-height: 100vh;
+  height: 100%;
   width: 30%;
-  min-width: 450px;
   background-color: #000;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .cartao {
-  max-width: 400px;
-  max-height: 200px;
-  width: 100%;
-  height: 100%;
-  min-width: 80px;
-  min-height: 50px;
+  width: 22em;
+  height: 12em;
   background-color: #fff;
-  margin: 10px auto;
+  margin: 0 auto;
   margin-top: 50px;
   border: none;
   border-radius: 10px;
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  padding: 15px;
   position: relative;
-  font-size: 90%;
 }
 
 #numero-cartao {
-  width: 100%;
   bottom: 20%;
   position: absolute;
   font-size: 1em;
+  left: 4%;
 }
 
 #nome {
-  width: 100%;
   bottom: 7%;
   position: absolute;
   font-size: 1em;
+  left: 4%;
 }
 
 #cvv {
-  width: 100%;
   bottom: 7%;
   left: 30%;
   position: absolute;
@@ -59,7 +47,6 @@ main {
 }
 
 #validade {
-  width: 100%;
   position: absolute;
   font-size: 1em;
   bottom: 7%;
@@ -71,4 +58,163 @@ main {
   bottom: 5%;
   left: 73%;
   position: absolute;
+}
+
+.container {
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px 5%;
+}
+
+h1 {
+  font-size: 2rem;
+  width: 100%;
+  padding: 20px 0;
+}
+
+.form-pagamento {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100px 100px 100px 1rem 3rem;
+  gap: 50px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+      "nome nome"
+      "numero validade"
+      "cvv ."
+      "salvar-dados salvar-dados"
+      "voltar-loja finalizar-compra";
+}
+
+.label-div {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.label-div label {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.label-div input {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-color: #C4C4C4;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 0;
+}
+
+.nome-cartao {
+  grid-area: nome;
+}
+
+.numero-cartao {
+  grid-area: numero;
+}
+
+.validade-cartao {
+  grid-area: validade;
+}
+
+.cvv-cartao {
+  grid-area: cvv;
+}
+
+.salvar-dados-cartao {
+  grid-area: salvar-dados;
+}
+
+.salvar-dados-cartao label {
+  font-size: 1rem;
+  width: 100%;
+}
+
+.salvar-dados-cartao input {
+  width: auto;
+  border: none;
+  border-radius: 50px;
+}
+
+.botao-voltar {
+  grid-area: voltar-loja;
+  color: #fff;
+  background-color: #C4C4C4;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 15px;
+  text-decoration: none;
+}
+
+.seta {
+  position: absolute;
+  left: 8%;
+  width: 1rem;
+}
+
+.cadeado {
+  position: absolute;
+  left: 90%;
+  width: 1rem;
+}
+
+.botao-enviar {
+  grid-area: finalizar-compra;
+  color: #fff;
+  background-color: #C4C4C4;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 15px;
+}
+
+@media (max-width: 1400px) {
+  main {
+    font-size: 80%;
+  }
+}
+
+@media (max-width: 1200px) {
+  main {
+    font-size: 70%;
+  }
+}
+
+@media (max-width: 1000px) {
+  main {
+    font-size: 60%;
+  }
+}
+
+@media (max-width: 850px) {
+  main {
+    font-size: 50%;
+  }
+}
+
+@media (max-width: 700px) {
+  main {
+    font-size: 40%;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    font-size: 30%;
+  }
 }

@@ -11,7 +11,46 @@
 <body>
   <main>
     <section class="container">
+      <h1>Pagamento</h1>
+      <form class="form-pagamento" action="index.html" method="post">
 
+        <div class="label-div nome-cartao">
+          <label for="nomeCartao">Nome no cartão</label>
+          <input type="text" name="nomeCartao">
+        </div>
+
+        <div class="label-div numero-cartao">
+          <label for="numeroCartao">Número do cartão</label>
+          <input type="text" name="numeroCartao">
+        </div>
+
+        <div class="label-div validade-cartao">
+          <label for="validadeCartao">Validade</label>
+          <input type="text" name="validadeCartao">
+        </div>
+
+        <div class="label-div cvv-cartao">
+          <label for="cvvCartao">CVV</label>
+          <input type="text" name="cvvCartao">
+        </div>
+
+        <div class="salvar-dados-cartao" class="label-div">
+          <label for="salvarDadosCartao">
+            <input type="checkbox" name="salvarDadosCartao">
+            Salvar dados para a próxima compra
+          </label>
+        </div>
+
+        <a class="botao-voltar" href="#">
+          <img class="seta" src="./assets/seta.svg" alt="seta">
+          Voltar á loja
+        </a>
+        <button class="botao-enviar" type="submit" name="button">
+          <img class="cadeado" src="./assets/cadeado.svg" alt="seta">
+          Finalizar compra
+        </button>
+
+      </form>
     </section>
 
     <section class="cartao-container">
@@ -22,6 +61,10 @@
           <span id="validade">12/21</span>
         <img id="bandeira" src="./assets/visa-logo.svg" alt="visa-logo">
       </div>
+      <p>Sub total</p>
+      <p>Descontos</p>
+      <p>Cupom de Desconto</p>
+      <p>Total</p>
     </section>
   </main>
 </body>
