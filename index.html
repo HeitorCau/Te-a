@@ -4,31 +4,40 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/style.css">
   <title>Teça - Login</title>
 </head>
 <body>
-  <main class="container">
-    <form class="form-login" action="index.html" method="post">
+  <main>
+    <section class="container">
 
-      <div class="label-div">
-        <input type="text" name="nome" placeholder="Nome" value="adminteca@teca.com">
-      </div>
+      <form class="form-login" action="index.html" method="post">
 
-      <div class="label-div">
-        <input type="password" name="senha" placeholder="Senha">
-      </div>
+        <img id="index-logo" src="./assets/logo.png" alt="Teçá">
 
-      <div class="label-div">
-        <a href="#">Esqueceu sua senha?</a>
-      </div>
+        <div class="label-div">
+          <input type="email" name="email" placeholder="Email">
+        </div>
 
-      <button class="primary-button" type="submit" name="button">Entrar</button>
+        <div class="label-div">
+          <input type="password" name="senha" placeholder="Senha">
+        </div>
 
-    </form>
+        <div class="label-div">
+          <a href="#">Esqueceu sua senha?</a>
+        </div>
+
+        <button class="primary-button" type="submit" name="button">Entrar</button>
+
+      </form>
+    </section>
+
+    <section class="container-img">
+
+      <img id="index-side-img" src="./assets/index-side-img.png" alt="img">
+    </section>
+
   </main>
 </body>
 </html>
