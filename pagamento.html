@@ -6,32 +6,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/pagamento.css">
   <link rel="stylesheet" href="./css/style.css">
-  <title>Teça - Login</title>
+  <title>Teça - Pagamento</title>
 </head>
 <body>
   <main>
-    <section class="container">
       <h1>Pagamento</h1>
+
+      <div class="cartao">
+          <span id="numero-cartao">0000 0000 0000 0000</span>
+          <span id="nome">John Doe</span>
+          <span id="cvv">123</span>
+          <span id="validade">12/21</span>
+        <img id="bandeira" src="./assets/visa-logo.svg" alt="visa-logo">
+      </div>
+
       <form class="form-pagamento" action="index.html" method="post">
 
         <div class="label-div nome-cartao">
           <label for="nomeCartao">Nome no cartão</label>
-          <input type="text" name="nomeCartao">
+          <input type="text" name="nomeCartao" placeholder="Vinicius A M Rodrigues">
         </div>
 
         <div class="label-div numero-cartao">
           <label for="numeroCartao">Número do cartão</label>
-          <input type="text" name="numeroCartao">
+          <input type="text" name="numeroCartao" placeholder="0000 0000 0000 0000">
         </div>
 
         <div class="label-div validade-cartao">
           <label for="validadeCartao">Validade</label>
-          <input type="text" name="validadeCartao">
+          <input type="text" name="validadeCartao" placeholder="12/22">
         </div>
 
         <div class="label-div cvv-cartao">
           <label for="cvvCartao">CVV</label>
-          <input type="text" name="cvvCartao">
+          <input type="text" name="cvvCartao" placeholder="123">
         </div>
 
         <div class="salvar-dados-cartao" class="label-div">
@@ -41,31 +49,29 @@
           </label>
         </div>
 
+        <div class="label div checkout">
+          <p>Sub total: R$ 485,00</p>
+          <p>Descontos: R$ 100,00</p>
+          <p>Total: R$ 385,00</p>
+        </div>
+
+        <div class="label-div cupom">
+          <label for="cupom">Cupom de desconto</label>
+          <input type="text" name="cupom" placeholder="Cupom de desconto">
+        </div>
+
         <a class="botao-voltar" href="#">
           <img class="seta" src="./assets/seta.svg" alt="seta">
           Voltar á loja
         </a>
+
         <button class="botao-enviar" type="submit" name="button">
           <img class="cadeado" src="./assets/cadeado.svg" alt="seta">
           Finalizar compra
         </button>
 
       </form>
-    </section>
 
-    <section class="cartao-container">
-      <div class="cartao">
-          <span id="numero-cartao">0000 0000 0000 0000</span>
-          <span id="nome">John Doe</span>
-          <span id="cvv">123</span>
-          <span id="validade">12/21</span>
-        <img id="bandeira" src="./assets/visa-logo.svg" alt="visa-logo">
-      </div>
-      <p>Sub total</p>
-      <p>Descontos</p>
-      <p>Cupom de Desconto</p>
-      <p>Total</p>
-    </section>
   </main>
 </body>
 </html>
