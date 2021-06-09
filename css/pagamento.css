@@ -20,7 +20,7 @@
 }
 
 #nomeCartaoVisual {
-  bottom: 7%;
+  bottom: 35%;
   position: absolute;
   font-size: 1em;
   left: 4%;
@@ -28,7 +28,7 @@
 
 #cvvCartaoVisual {
   bottom: 7%;
-  left: 30%;
+  left: 48%;
   position: absolute;
   font-size: 1em;
 }
@@ -37,7 +37,7 @@
   position: absolute;
   font-size: 1em;
   bottom: 7%;
-  left: 45%;
+  left: 4%;
 }
 
 #bandeira {
