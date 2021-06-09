@@ -12,28 +12,28 @@
   color: #000;
 }
 
-#numero-cartao {
+#numeroCartaoVisual {
   bottom: 20%;
   position: absolute;
   font-size: 1em;
   left: 4%;
 }
 
-#nome {
+#nomeCartaoVisual {
   bottom: 7%;
   position: absolute;
   font-size: 1em;
   left: 4%;
 }
 
-#cvv {
+#cvvCartaoVisual {
   bottom: 7%;
   left: 30%;
   position: absolute;
   font-size: 1em;
 }
 
-#validade {
+#validadeCartaoVisual {
   position: absolute;
   font-size: 1em;
   bottom: 7%;
@@ -57,7 +57,6 @@ main {
 
 h1 {
   font-size: 2rem;
-  width: auto;
   margin-top: 60px;
   padding: 20px 0;
   position: absolute;
@@ -75,7 +74,7 @@ h1 {
       "nome numero validade"
       "cvv . ."
       "salvar-dados salvar-dados salvar-dados"
-      "checkout checkout cupom"
+      "checkout . cupom"
       "voltar-loja . finalizar-compra";
 }
 

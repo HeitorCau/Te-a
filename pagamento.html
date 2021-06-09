@@ -13,10 +13,10 @@
       <h1>Pagamento</h1>
 
       <div class="cartao">
-          <span id="numero-cartao">0000 0000 0000 0000</span>
-          <span id="nome">John Doe</span>
-          <span id="cvv">123</span>
-          <span id="validade">12/21</span>
+          <span id="numeroCartaoVisual">0000 0000 0000 0000</span>
+          <span id="nomeCartaoVisual">John Doe</span>
+          <span id="cvvCartaoVisual">123</span>
+          <span id="validadeCartaoVisual">12/21</span>
         <img id="bandeira" src="./assets/visa-logo.svg" alt="visa-logo">
       </div>
 
@@ -24,22 +24,22 @@
 
         <div class="label-div nome-cartao">
           <label for="nomeCartao">Nome no cartão</label>
-          <input type="text" name="nomeCartao" placeholder="Vinicius A M Rodrigues">
+          <input id="nome" type="text" name="nomeCartao" placeholder="Vinicius A M Rodrigues">
         </div>
 
         <div class="label-div numero-cartao">
           <label for="numeroCartao">Número do cartão</label>
-          <input type="text" name="numeroCartao" placeholder="0000 0000 0000 0000">
+          <input id="numero" type="text" name="numeroCartao" placeholder="0000 0000 0000 0000">
         </div>
 
         <div class="label-div validade-cartao">
           <label for="validadeCartao">Validade</label>
-          <input type="text" name="validadeCartao" placeholder="12/22">
+          <input id="validade" type="text" name="validadeCartao" placeholder="12/22">
         </div>
 
         <div class="label-div cvv-cartao">
           <label for="cvvCartao">CVV</label>
-          <input type="text" name="cvvCartao" placeholder="123">
+          <input id="cvv" type="text" name="cvvCartao" placeholder="123">
         </div>
 
         <div class="salvar-dados-cartao" class="label-div">
@@ -71,7 +71,7 @@
         </button>
 
       </form>
-
+  <script type="text/javascript" src="./js/index.js"></script>
   </main>
 </body>
 </html>
