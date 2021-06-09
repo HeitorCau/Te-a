@@ -1,4 +1,4 @@
-// try {
+try {
 
 let numero = document.getElementById('numero');
 console.log(numero);
@@ -22,6 +22,6 @@ let validadeCartaoVisual = document.getElementById('validadeCartaoVisual');
 const infoCartaoVisual = (input,campoCartao) => {
   campoCartao.innerHTML = input.value;
 }
-//
-//
-// } catch (e) {}
+
+
+} catch (e) {}
