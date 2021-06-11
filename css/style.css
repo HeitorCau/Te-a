@@ -22,7 +22,6 @@ html {
 .container {
   display: flex;
   flex-direction: row;
-  
 }
 
 .navbar {
@@ -70,4 +69,3 @@ html {
   margin-left: 10%;
   width: 60%;
 }
-
