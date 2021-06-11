@@ -17,11 +17,11 @@
         <img id="index-logo" src="./assets/logo.png" alt="Teçá">
 
         <div class="label-div">
-          <input id="nome" type="text" name="nome" placeholder="Nome">
+          <input required pattern="[a-zA-Z0-9\u00C0-\u00FF]*$+/i" title="Somente letras e números são permitidos" id="nome" type="text" name="nome" placeholder="Nome">
         </div>
 
         <div class="label-div">
-          <input id="senha" type="password" name="senha" placeholder="Senha">
+          <input required pattern="[a-zA-Z0-9\u00C0-\u00FF]*$+/i" title="Somente letras e números são permitidos" id="senha" type="password" name="senha" placeholder="Senha">
         </div>
 
         <span id="mensagemErro" class="erro"></span>
