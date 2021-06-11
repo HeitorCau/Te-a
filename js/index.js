@@ -387,3 +387,181 @@ function validarCamposCliente() {
 }
 
 } catch (e) {}
+
+try {
+
+let formFornecedores = document.getElementById('form-fornecedores');
+
+let razaoSocialOK = false;
+let cnpjOK = false;
+let cepOK = false;
+let logradouroOK = false;
+let numeroEnderecoOK = false;
+let bairroOK = false;
+let estadoOK = false;
+let cidadeOK = false;
+
+let razaoSocialInput = document.getElementById('razao-social');
+let cnpjInput = document.getElementById('cnpj');
+let cepInput = document.getElementById('cep');
+let logradouroInput = document.getElementById('logradouro');
+let numeroEnderecoInput = document.getElementById('numero-endereco');
+let bairroInput = document.getElementById('bairro');
+let estadoInput = document.getElementById('estado');
+let cidadeInput = document.getElementById('cidade');
+
+let razaoSocialErro = document.getElementById('erro-razao-social');
+let cnpjErro = document.getElementById('erro-cnpj');
+let cepErro = document.getElementById('erro-cep');
+let logradouroErro = document.getElementById('erro-logradouro');
+let numeroEnderecoErro = document.getElementById('erro-numero-endereco');
+let bairroErro = document.getElementById('erro-bairro');
+let estadoErro = document.getElementById('erro-estado');
+let cidadeErro = document.getElementById('erro-cidade');
+
+formFornecedores.onsubmit = function (e) {e.preventDefault(); validarCamposFornecedor();}
+
+razaoSocialInput.onkeyup = function () {
+
+  if (razaoSocialInput.value.length == 0) {
+    razaoSocialErro.innerHTML = "Insira uma razão social";
+  } else {
+    razaoSocialErro.innerHTML = "";
+    razaoSocialOK = true;
+  }
+}
+
+logradouroInput.onkeyup = function () {
+
+  if (logradouroInput.value.length == 0) {
+    logradouroErro.innerHTML = "Insira um logradouro";
+  } else {
+    logradouroErro.innerHTML = "";
+    logradouroOK = true;
+  }
+}
+
+numeroEnderecoInput.onkeyup = function () {
+
+  if (numeroEnderecoInput.value.length == 0) {
+    numeroEnderecoErro.innerHTML = "Insira o número do endereço";
+  } else {
+    numeroEnderecoOK = true;
+    numeroEnderecoErro.innerHTML = "";
+  }
+
+}
+
+bairroInput.onkeyup = function () {
+
+  if (bairroInput.value.length == 0) {
+    bairroErro.innerHTML = "Insira um bairro";
+  } else {
+    bairroOK = true;
+    bairroErro.innerHTML = "";
+  }
+
+}
+
+estadoInput.onkeyup = function () {
+
+  if (estadoInput.value.length == 0) {
+    estadoErro.innerHTML = "Insira um estado";
+  } else {
+    estadoOK = true;
+    estadoErro.innerHTML = "";
+  }
+
+}
+
+cidadeInput.onkeyup = function () {
+
+  if (cidadeInput.value.length == 0) {
+    cidadeErro.innerHTML = "Insira uma cidade";
+  } else {
+    cidadeOK = true;
+    cidadeErro.innerHTML = "";
+  }
+
+}
+
+function mascaraCnpj() {
+
+    if (cnpjInput.value.length == 0) {
+      cnpjErro.innerHTML = "Insira um CNPJ";
+    } else {
+      cnpjOK = true;
+      cnpjErro.innerHTML = "";
+    }
+
+    cnpjInput.value = cnpjInput.value
+    .replace(/\D+/g, '')
+    .replace(/(\d{2})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1/$2')
+    .replace(/(\d{4})(\d)/, '$1-$2')
+    .replace(/(-\d{2})\d+?$/, '$1');
+
+}
+
+cnpjInput.onkeyup = function () {mascaraCnpj();}
+cepInput.onkeyup = function () {mascaraCep();}
+
+function mascaraCep() {
+
+    if (cepInput.value.length == 0) {
+      cepErro.innerHTML = "Insira um CEP";
+    } else {
+      cepOK = true;
+      cepErro.innerHTML = "";
+    }
+
+    cepInput.value = cepInput.value
+    .replace(/\D+/g, '')
+    .replace(/(\d{5})(\d)/, '$1-$2')
+    .replace(/(-\d{3})\d+?$/, '$1');
+
+}
+
+function validarCamposFornecedor() {
+
+    if (razaoSocialInput.value.length == 0) {
+      razaoSocialErro.innerHTML = "Insira a razão social";
+    }
+
+    if (cnpjInput.value.length < 18) {
+      cnpjErro.innerHTML = "Insira um CNPJ válido";
+    }
+
+    if (cepInput.value.length == 0) {
+      cepErro.innerHTML = "Insira um CEP";
+    }
+
+    if (logradouroInput.value.length == 0) {
+      logradouroErro.innerHTML = "Insira um logradouro";
+    }
+
+    if (numeroEnderecoInput.value.length == 0) {
+      numeroEnderecoErro.innerHTML = "Insira o número do endereço";
+    }
+
+    if (bairroInput.value.length == 0) {
+      bairroErro.innerHTML = "Insira um bairro";
+    }
+
+    if (estadoInput.value.length == 0) {
+      estadoErro.innerHTML = "Insira um estado";
+    }
+
+    if (cidadeInput.value.length == 0) {
+      cidadeErro.innerHTML = "Insira uma Cidade";
+    }
+
+    if (razaoSocialOK && cepOK && logradouroOK && numeroEnderecoOK && bairroOK && estadoOK && cidadeOK) {
+      window.location.href="dashboard.html";
+    } else {
+      console.log(razaoSocialOK,cepOK,logradouroOK,numeroEnderecoOK,bairroOK,estadoOK,cidadeOK);
+    }
+}
+
+} catch (e) {}
