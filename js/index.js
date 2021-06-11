@@ -1,4 +1,4 @@
-// try {
+try {
   let nomeInput = document.getElementById("nome");
   let senhaInput = document.getElementById('senha');
   let mensagemErro = document.getElementById('mensagemErro');
@@ -32,7 +32,7 @@ function validateLogin(namePar,passwordPar) {
   mensagemErro.innerHTML = erro;
 }
 
-// } catch (e) {}
+} catch (e) {}
 
 try {
 
