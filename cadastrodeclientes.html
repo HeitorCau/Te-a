@@ -41,7 +41,7 @@
           <form id="form-clientes" action="dashboard.html" class="form-clientes">
             <div class="input-group razao-social">
               <label for="razao-social">Razão Social</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras, espaços e números são permitidos" id="razao-social" type="text" name="razao-social">
+              <input required pattern="[a-zA-Z0-9\u00C0-\u00FF]]*$+/i" title="Somente letras, espaços e números são permitidos" id="razao-social" type="text" name="razao-social">
               <span id="erro-razao-social" class="erro"></span>
             </div>
 
@@ -53,7 +53,7 @@
 
             <div class="input-group nome-representante">
               <label for="nome-representante">Nome Representante</label>
-              <input required pattern="[a-zA-Z]*$" title="Somente letras e espaços são permitidos" id="nome-representante" type="text" name="nome-representante">
+              <input required pattern="[a-zA-Z\u00C0-\u00FF]*$+/i" title="Somente letras e espaços são permitidos" id="nome-representante" type="text" name="nome-representante">
               <span id="erro-nome-representante" class="erro"></span>
             </div>
 
@@ -71,37 +71,37 @@
 
             <div class="input-group logradouro">
               <label for="logradouro">Logradouro</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="logradouro" type="text" name="logradouro">
+              <input required pattern="[a-zA-Z0-9\u00C0-\u00FF]*$+/i" title="Somente letras e números são permitidos" id="logradouro" type="text" name="logradouro">
               <span id="erro-logradouro" class="erro"></span>
             </div>
 
             <div class="input-group numero-endereco">
               <label for="numero-endereco">Número</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos"  id="numero-endereco" type="text" name="numero-endereco">
+              <input required pattern="[a-zA-Z0-9\u00C0-\u00FF]*$+/i" title="Somente letras e números são permitidos"  id="numero-endereco" type="text" name="numero-endereco">
               <span id="erro-numero-endereco" class="erro"></span>
             </div>
 
             <div class="input-group bairro">
               <label for="bairro">Bairro</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="bairro" type="text" name="bairro">
+              <input required pattern="[a-zA-Z0-9\u00C0-\u00FF]*$+/i" title="Somente letras e números são permitidos" id="bairro" type="text" name="bairro">
               <span id="erro-bairro" class="erro"></span>
             </div>
 
             <div class="input-group estado">
               <label for="estado">Estado</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="estado" type="text" name="estado">
+              <input required pattern="[a-zA-Z0-9\u00C0-\u00FF]*$+/i" title="Somente letras e números são permitidos" id="estado" type="text" name="estado">
               <span id="erro-estado" class="erro"></span>
             </div>
 
             <div class="input-group cidade">
               <label for="cidade">Cidade</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="cidade" type="text" name="cidade">
+              <input required pattern="[a-zA-Z0-9\u00C0-\u00FF]*$+/i" title="Somente letras e números são permitidos" id="cidade" type="text" name="cidade">
               <span id="erro-cidade" class="erro"></span>
             </div>
 
             <div class="input-group complemento">
               <label for="complemento">Complemento</label>
-              <input pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" type="text" name="complemento">
+              <input pattern="[a-zA-Z0-9\u00C0-\u00FF]*$+/i" title="Somente letras e números são permitidos" type="text" name="complemento">
             </div>
 
               <button class="btn cancelar" type="button" name="button">Cancelar</button>
