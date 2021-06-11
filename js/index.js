@@ -3,257 +3,257 @@ try {
   let senhaInput = document.getElementById('senha');
   let mensagemErro = document.getElementById('mensagemErro');
 
-  document.getElementById("form-login").onsubmit = function(e) { e.preventDefault(); validateLogin(nomeInput.value,senhaInput.value);}
+  document.getElementById("form-login").onsubmit = function (e) { e.preventDefault(); validateLogin(nomeInput.value, senhaInput.value); }
 
-function validateLogin(namePar,passwordPar) {
+  function validateLogin(namePar, passwordPar) {
 
-  let users = [
-                {"name":"Heitor","password":"88116","role":"adm"},
-                {"name":"José","password":"89295","role":"adm"},
-                {"name":"Leandro","password":"88768","role":"adm"},
-                {"name":"Lucas","password":"86696","role":"adm"},
-                {"name":"Vinicius","password":"87985","role":"adm"},
-                {"name":"Cliente","password":"cliente","role":"client"}
-              ];
+    let users = [
+      { "name": "Heitor", "password": "88116", "role": "adm" },
+      { "name": "José", "password": "89295", "role": "adm" },
+      { "name": "Leandro", "password": "88768", "role": "adm" },
+      { "name": "Lucas", "password": "86696", "role": "adm" },
+      { "name": "Vinicius", "password": "87985", "role": "adm" },
+      { "name": "Cliente", "password": "cliente", "role": "client" }
+    ];
 
-  let erro = "";
+    let erro = "";
 
-  for (var i = 0; i < users.length; i++) {
-    if (users[i].name == namePar && users[i].password == passwordPar) {
-      if (users[i].role == "adm") {
-        return  window.location.href="dashboard.html";
+    for (var i = 0; i < users.length; i++) {
+      if (users[i].name == namePar && users[i].password == passwordPar) {
+        if (users[i].role == "adm") {
+          return window.location.href = "dashboard.html";
+        } else {
+          return window.location.href = "venda.html";
+        }
+      } else if (users[i].name != namePar) {
+        erro = "Nome de usuário incorreto";
       } else {
-        return  window.location.href="venda.html";
+        erro = "Senha incorreta";
+        break;
       }
-    } else if (users[i].name != namePar) {
-      erro = "Nome de usuário incorreto";
-    } else {
-      erro = "Senha incorreta";
-      break;
     }
+    mensagemErro.innerHTML = erro;
   }
-  mensagemErro.innerHTML = erro;
-}
 
-} catch (e) {}
+} catch (e) { }
 
 try {
 
-let numero = document.getElementById('numeroCartao');
-let nome = document.getElementById('nomeCartao');
-let cvv = document.getElementById('cvvCartao');
-let validade = document.getElementById('validadeCartao');
+  let numero = document.getElementById('numeroCartao');
+  let nome = document.getElementById('nomeCartao');
+  let cvv = document.getElementById('cvvCartao');
+  let validade = document.getElementById('validadeCartao');
 
-let formPagamento = document.getElementById('form-pagamento');
+  let formPagamento = document.getElementById('form-pagamento');
 
-formPagamento.onsubmit = function (e) {e.preventDefault(); verificarCamposPagamento(nome, nomeErro, numero, numeroErro, validade, validadeErro, cvv, cvvErro);}
+  formPagamento.onsubmit = function (e) { e.preventDefault(); verificarCamposPagamento(nome, nomeErro, numero, numeroErro, validade, validadeErro, cvv, cvvErro); }
 
-numero.onkeyup = function () { infoCartaoNumero(numero,numeroCartaoVisual,numeroErro) }
+  numero.onkeyup = function () { infoCartaoNumero(numero, numeroCartaoVisual, numeroErro) }
 
-nome.onkeyup = function () { infoCartaoNome(nome,nomeCartaoVisual,nomeErro) }
+  nome.onkeyup = function () { infoCartaoNome(nome, nomeCartaoVisual, nomeErro) }
 
-cvv.onkeyup = function () { infoCartaoCvv(cvv,cvvCartaoVisual,cvvErro) }
+  cvv.onkeyup = function () { infoCartaoCvv(cvv, cvvCartaoVisual, cvvErro) }
 
-validade.onkeyup = function () { infoCartaoValidade(validade,validadeCartaoVisual,validadeErro) }
+  validade.onkeyup = function () { infoCartaoValidade(validade, validadeCartaoVisual, validadeErro) }
 
-let numeroCartaoVisual = document.getElementById('numeroCartaoVisual');
-let nomeCartaoVisual = document.getElementById('nomeCartaoVisual');
-let cvvCartaoVisual = document.getElementById('cvvCartaoVisual');
-let validadeCartaoVisual = document.getElementById('validadeCartaoVisual');
+  let numeroCartaoVisual = document.getElementById('numeroCartaoVisual');
+  let nomeCartaoVisual = document.getElementById('nomeCartaoVisual');
+  let cvvCartaoVisual = document.getElementById('cvvCartaoVisual');
+  let validadeCartaoVisual = document.getElementById('validadeCartaoVisual');
 
-let numeroErro = document.getElementById('numero-erro');
-let nomeErro = document.getElementById('nome-erro');
-let validadeErro = document.getElementById('validade-erro');
-let cvvErro = document.getElementById('cvv-erro');
+  let numeroErro = document.getElementById('numero-erro');
+  let nomeErro = document.getElementById('nome-erro');
+  let validadeErro = document.getElementById('validade-erro');
+  let cvvErro = document.getElementById('cvv-erro');
 
-function infoCartaoNumero (campo,campoCartao,campoErro) {
-
-        campoErro.innerHTML = "";
-
-        campo.value = campo.value
-        .replace(/\D+/g, '')
-        .replace(/(\d{4})(\d)/, '$1 $2')
-        .replace(/(\d{4})(\d)/, '$1 $2')
-        .replace(/(\d{4})(\d)/, '$1 $2')
-        .replace(/(\d{4})\d+?$/, '$1');
-
-        if (campo.value.length == 0) {
-          campoCartao.innerHTML = "0000 0000 0000 0000";
-        } else {
-          campoCartao.innerHTML = campo.value;
-        }
-}
-
-function infoCartaoNome (campo,campoCartao,campoErro) {
-
-      campoErro.innerHTML = "";
-
-      campo.value = campo.value
-          .replace(/\d+/g, '');
-            if (campo.value.length == 0) {
-              campoCartao.innerHTML = "Jhon Doe";
-            } else {
-              campoCartao.innerHTML = campo.value;
-            }
-}
-
-function infoCartaoValidade (campo,campoCartao,campoErro) {
+  function infoCartaoNumero(campo, campoCartao, campoErro) {
 
     campoErro.innerHTML = "";
 
     campo.value = campo.value
-        .replace(/\D+/g, '')
-        .replace(/(\d{2})(\d)/, '$1/$2')
-        .replace(/(\d{2})(\d)/, '$1');
+      .replace(/\D+/g, '')
+      .replace(/(\d{4})(\d)/, '$1 $2')
+      .replace(/(\d{4})(\d)/, '$1 $2')
+      .replace(/(\d{4})(\d)/, '$1 $2')
+      .replace(/(\d{4})\d+?$/, '$1');
 
-        if (campo.value.length == 0) {
-          campoCartao.innerHTML = "12/21";
-        } else {
-          campoCartao.innerHTML = campo.value;
-        }
-
-}
-
-function infoCartaoCvv(campo,campoCartao,campoErro) {
-
-      campoErro.innerHTML = "";
-
-      campo.value = campo.value.replace(/\D+/g, '');
-      if (campo.value.length == 0) {
-          campoCartao.innerHTML = "123";
-      } else {
-          campoCartao.innerHTML = campo.value;
-      }
-
-}
-
-function verificarCamposPagamento(nome, nomeErro, numero, numeroErro, validade, validadeErro, cvv, cvvErro){
-
-  if (nome.value.length == 0) {
-    nomeErro.innerHTML = "Insira o nome no cartão";
+    if (campo.value.length == 0) {
+      campoCartao.innerHTML = "0000 0000 0000 0000";
+    } else {
+      campoCartao.innerHTML = campo.value;
+    }
   }
 
-  if (numero.value.length == 0) {
-    numeroErro.innerHTML = "Insira o numero do cartão";
+  function infoCartaoNome(campo, campoCartao, campoErro) {
+
+    campoErro.innerHTML = "";
+
+    campo.value = campo.value
+      .replace(/\d+/g, '');
+    if (campo.value.length == 0) {
+      campoCartao.innerHTML = "Jhon Doe";
+    } else {
+      campoCartao.innerHTML = campo.value;
+    }
   }
 
-  if (validade.value.length == 0) {
-    validadeErro.innerHTML = "Insira o validade do cartão";
+  function infoCartaoValidade(campo, campoCartao, campoErro) {
+
+    campoErro.innerHTML = "";
+
+    campo.value = campo.value
+      .replace(/\D+/g, '')
+      .replace(/(\d{2})(\d)/, '$1/$2')
+      .replace(/(\d{2})(\d)/, '$1');
+
+    if (campo.value.length == 0) {
+      campoCartao.innerHTML = "12/21";
+    } else {
+      campoCartao.innerHTML = campo.value;
+    }
+
   }
 
-  if (cvv.value.length == 0) {
-    cvvErro.innerHTML = "Insira o código de validação do cartão";
+  function infoCartaoCvv(campo, campoCartao, campoErro) {
+
+    campoErro.innerHTML = "";
+
+    campo.value = campo.value.replace(/\D+/g, '');
+    if (campo.value.length == 0) {
+      campoCartao.innerHTML = "123";
+    } else {
+      campoCartao.innerHTML = campo.value;
+    }
+
   }
 
-}
+  function verificarCamposPagamento(nome, nomeErro, numero, numeroErro, validade, validadeErro, cvv, cvvErro) {
 
-} catch (e) {}
+    if (nome.value.length == 0) {
+      nomeErro.innerHTML = "Insira o nome no cartão";
+    }
+
+    if (numero.value.length == 0) {
+      numeroErro.innerHTML = "Insira o numero do cartão";
+    }
+
+    if (validade.value.length == 0) {
+      validadeErro.innerHTML = "Insira o validade do cartão";
+    }
+
+    if (cvv.value.length == 0) {
+      cvvErro.innerHTML = "Insira o código de validação do cartão";
+    }
+
+  }
+
+} catch (e) { }
 
 try {
 
-let formClientes = document.getElementById('form-clientes');
+  let formClientes = document.getElementById('form-clientes');
 
-let razaoSocialOK = false;
-let cnpjOK = false;
-let nomeRepresentanteOK = false;
-let cpfRepresentanteOK = false;
-let cepOK = false;
-let logradouroOK = false;
-let numeroEnderecoOK = false;
-let bairroOK = false;
-let estadoOK = false;
-let cidadeOK = false;
+  let razaoSocialOK = false;
+  let cnpjOK = false;
+  let nomeRepresentanteOK = false;
+  let cpfRepresentanteOK = false;
+  let cepOK = false;
+  let logradouroOK = false;
+  let numeroEnderecoOK = false;
+  let bairroOK = false;
+  let estadoOK = false;
+  let cidadeOK = false;
 
-let razaoSocialInput = document.getElementById('razao-social');
-let cnpjInput = document.getElementById('cnpj');
-let nomeRepresentanteInput = document.getElementById('nome-representante');
-let cpfRepresentanteInput = document.getElementById('cpf-representante');
-let cepInput = document.getElementById('cep');
-let logradouroInput = document.getElementById('logradouro');
-let numeroEnderecoInput = document.getElementById('numero-endereco');
-let bairroInput = document.getElementById('bairro');
-let estadoInput = document.getElementById('estado');
-let cidadeInput = document.getElementById('cidade');
+  let razaoSocialInput = document.getElementById('razao-social');
+  let cnpjInput = document.getElementById('cnpj');
+  let nomeRepresentanteInput = document.getElementById('nome-representante');
+  let cpfRepresentanteInput = document.getElementById('cpf-representante');
+  let cepInput = document.getElementById('cep');
+  let logradouroInput = document.getElementById('logradouro');
+  let numeroEnderecoInput = document.getElementById('numero-endereco');
+  let bairroInput = document.getElementById('bairro');
+  let estadoInput = document.getElementById('estado');
+  let cidadeInput = document.getElementById('cidade');
 
-let razaoSocialErro = document.getElementById('erro-razao-social');
-let cnpjErro = document.getElementById('erro-cnpj');
-let nomeRepresentanteErro = document.getElementById('erro-nome-representante');
-let cpfRepresentanteErro = document.getElementById('erro-cpf-representante');
-let cepErro = document.getElementById('erro-cep');
-let logradouroErro = document.getElementById('erro-logradouro');
-let numeroEnderecoErro = document.getElementById('erro-numero-endereco');
-let bairroErro = document.getElementById('erro-bairro');
-let estadoErro = document.getElementById('erro-estado');
-let cidadeErro = document.getElementById('erro-cidade');
+  let razaoSocialErro = document.getElementById('erro-razao-social');
+  let cnpjErro = document.getElementById('erro-cnpj');
+  let nomeRepresentanteErro = document.getElementById('erro-nome-representante');
+  let cpfRepresentanteErro = document.getElementById('erro-cpf-representante');
+  let cepErro = document.getElementById('erro-cep');
+  let logradouroErro = document.getElementById('erro-logradouro');
+  let numeroEnderecoErro = document.getElementById('erro-numero-endereco');
+  let bairroErro = document.getElementById('erro-bairro');
+  let estadoErro = document.getElementById('erro-estado');
+  let cidadeErro = document.getElementById('erro-cidade');
 
-formClientes.onsubmit = function (e) {e.preventDefault(); validarCamposCliente();}
+  formClientes.onsubmit = function (e) { e.preventDefault(); validarCamposCliente(); }
 
-razaoSocialInput.onkeyup = function () {
+  razaoSocialInput.onkeyup = function () {
 
-  if (razaoSocialInput.value.length == 0) {
-    razaoSocialErro.innerHTML = "Insira a razão social";
-  } else {
-    razaoSocialErro.innerHTML = "";
-    razaoSocialOK = true;
+    if (razaoSocialInput.value.length == 0) {
+      razaoSocialErro.innerHTML = "Insira a razão social";
+    } else {
+      razaoSocialErro.innerHTML = "";
+      razaoSocialOK = true;
+    }
+
   }
 
-}
+  logradouroInput.onkeyup = function () {
 
-logradouroInput.onkeyup = function () {
-
-  if (logradouroInput.value.length == 0) {
-    logradouroErro.innerHTML = "Insira um logradouro";
-  } else {
-    logradouroErro.innerHTML = "";
-    logradouroOK = true;
-  }
-}
-
-numeroEnderecoInput.onkeyup = function () {
-
-  if (numeroEnderecoInput.value.length == 0) {
-    numeroEnderecoErro.innerHTML = "Insira o número do endereço";
-  } else {
-    numeroEnderecoOK = true;
-    numeroEnderecoErro.innerHTML = "";
+    if (logradouroInput.value.length == 0) {
+      logradouroErro.innerHTML = "Insira um logradouro";
+    } else {
+      logradouroErro.innerHTML = "";
+      logradouroOK = true;
+    }
   }
 
-}
+  numeroEnderecoInput.onkeyup = function () {
 
-bairroInput.onkeyup = function () {
+    if (numeroEnderecoInput.value.length == 0) {
+      numeroEnderecoErro.innerHTML = "Insira o número do endereço";
+    } else {
+      numeroEnderecoOK = true;
+      numeroEnderecoErro.innerHTML = "";
+    }
 
-  if (bairroInput.value.length == 0) {
-    bairroErro.innerHTML = "Insira um bairro";
-  } else {
-    bairroOK = true;
-    bairroErro.innerHTML = "";
   }
 
-}
+  bairroInput.onkeyup = function () {
 
-estadoInput.onkeyup = function () {
+    if (bairroInput.value.length == 0) {
+      bairroErro.innerHTML = "Insira um bairro";
+    } else {
+      bairroOK = true;
+      bairroErro.innerHTML = "";
+    }
 
-  if (estadoInput.value.length == 0) {
-    estadoErro.innerHTML = "Insira um estado";
-  } else {
-    estadoOK = true;
-    estadoErro.innerHTML = "";
   }
 
-}
+  estadoInput.onkeyup = function () {
 
-cidadeInput.onkeyup = function () {
+    if (estadoInput.value.length == 0) {
+      estadoErro.innerHTML = "Insira um estado";
+    } else {
+      estadoOK = true;
+      estadoErro.innerHTML = "";
+    }
 
-  if (cidadeInput.value.length == 0) {
-    cidadeErro.innerHTML = "Insira uma cidade";
-  } else {
-    cidadeOK = true;
-    cidadeErro.innerHTML = "";
   }
 
-}
+  cidadeInput.onkeyup = function () {
 
-function mascaraCnpj() {
+    if (cidadeInput.value.length == 0) {
+      cidadeErro.innerHTML = "Insira uma cidade";
+    } else {
+      cidadeOK = true;
+      cidadeErro.innerHTML = "";
+    }
+
+  }
+
+  function mascaraCnpj() {
 
     if (cnpjInput.value.length == 0) {
       cnpjErro.innerHTML = "Insira um CNPJ";
@@ -263,16 +263,16 @@ function mascaraCnpj() {
     }
 
     cnpjInput.value = cnpjInput.value
-    .replace(/\D+/g, '')
-    .replace(/(\d{2})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1/$2')
-    .replace(/(\d{4})(\d)/, '$1-$2')
-    .replace(/(-\d{2})\d+?$/, '$1');
+      .replace(/\D+/g, '')
+      .replace(/(\d{2})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1/$2')
+      .replace(/(\d{4})(\d)/, '$1-$2')
+      .replace(/(-\d{2})\d+?$/, '$1');
 
-}
+  }
 
-function mascaraNomeRepresentante() {
+  function mascaraNomeRepresentante() {
 
     if (nomeRepresentanteInput.value.length == 0) {
       nomeRepresentanteErro.innerHTML = "Insira o nome do representante ";
@@ -282,11 +282,11 @@ function mascaraNomeRepresentante() {
     }
 
     nomeRepresentanteInput.value = nomeRepresentanteInput.value
-    .replace(/\d+/g, '');
+      .replace(/\d+/g, '');
 
-}
+  }
 
-function mascaraCpf() {
+  function mascaraCpf() {
 
     if (cpfRepresentanteInput.value.length == 0) {
       cpfRepresentanteErro.innerHTML = "Insira um CPF válido";
@@ -295,20 +295,20 @@ function mascaraCpf() {
     }
 
     cpfRepresentanteInput.value = cpfRepresentanteInput.value
-    .replace(/\D+/g, '')
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1-$2')
-    .replace(/(-\d{2})\d+?$/, '$1');
+      .replace(/\D+/g, '')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1-$2')
+      .replace(/(-\d{2})\d+?$/, '$1');
 
-}
+  }
 
-function testarCpf() {
-  let cpf = cpfRepresentanteInput.value.replace(/\D+/g, '');
-  let soma = 0;
-  let resto;
+  function testarCpf() {
+    let cpf = cpfRepresentanteInput.value.replace(/\D+/g, '');
+    let soma = 0;
+    let resto;
 
-  if (!cpf ||
+    if (!cpf ||
       cpf.length != 11 ||
       cpf == "00000000000" ||
       cpf == "11111111111" ||
@@ -321,48 +321,48 @@ function testarCpf() {
       cpf == "88888888888" ||
       cpf == "99999999999") {
       cpfRepresentanteErro.innerHTML = "Insira um CPF válido";
+    }
+
+    for (var i = 1; i <= 9; i++) {
+      soma = soma + parseInt(cpf.substring(i - 1, i)) * (11 - i);
+      resto = (soma * 10) % 11;
+    }
+
+    if (resto == 10 || resto == 11) {
+      resto = 0;
+    }
+
+    if (resto != parseInt(cpf.substring(9, 10))) {
+      cpfRepresentanteErro.innerHTML = "Insira um CPF válido";
+    }
+
+    soma = 0;
+
+    for (var i = 1; i <= 10; i++) {
+      soma = soma + parseInt(cpf.substring(i - 1, i)) * (12 - i);
+      resto = (soma * 10) % 11;
+    }
+
+    if (resto == 10 || resto == 11) {
+      resto = 0;
+    }
+
+    if (resto == parseInt(cpf.substring(10, 11))) {
+      cpfRepresentanteErro.innerHTML = "";
+      cpfRepresentanteOK = true;
+    } else {
+      cpfRepresentanteErro.innerHTML = "Insira um CPF válido";
+    }
+
   }
 
-  for (var i = 1; i <= 9; i++) {
-    soma = soma + parseInt(cpf.substring(i-1, i)) * (11 - i);
-    resto = (soma * 10) % 11;
-  }
+  cnpjInput.onkeyup = function () { mascaraCnpj(); }
+  cpfRepresentanteInput.onkeyup = function () { mascaraCpf(); }
+  cepInput.onkeyup = function () { mascaraCep(); }
+  cpfRepresentanteInput.onblur = function () { testarCpf(); }
+  nomeRepresentanteInput.onkeyup = function () { mascaraNomeRepresentante(); }
 
-  if (resto == 10 || resto == 11) {
-    resto = 0;
-  }
-
-  if (resto != parseInt(cpf.substring(9, 10))) {
-    cpfRepresentanteErro.innerHTML = "Insira um CPF válido";
-  }
-
-  soma = 0;
-
-  for (var i = 1; i <= 10; i++) {
-    soma = soma + parseInt(cpf.substring(i-1, i)) * (12 - i);
-    resto = (soma * 10) % 11;
-  }
-
-  if (resto == 10 || resto == 11) {
-    resto = 0;
-  }
-
-  if (resto == parseInt(cpf.substring(10, 11))) {
-    cpfRepresentanteErro.innerHTML = "";
-    cpfRepresentanteOK = true;
-  } else {
-    cpfRepresentanteErro.innerHTML = "Insira um CPF válido";
-  }
-
-}
-
-cnpjInput.onkeyup = function () {mascaraCnpj();}
-cpfRepresentanteInput.onkeyup = function () {mascaraCpf();}
-cepInput.onkeyup = function () {mascaraCep();}
-cpfRepresentanteInput.onblur = function () {testarCpf();}
-nomeRepresentanteInput.onkeyup = function () {mascaraNomeRepresentante();}
-
-function mascaraCep() {
+  function mascaraCep() {
 
     if (cepInput.value.length == 0) {
       cepErro.innerHTML = "Insira um CEP";
@@ -372,13 +372,13 @@ function mascaraCep() {
     }
 
     cepInput.value = cepInput.value
-    .replace(/\D+/g, '')
-    .replace(/(\d{5})(\d)/, '$1-$2')
-    .replace(/(-\d{3})\d+?$/, '$1');
+      .replace(/\D+/g, '')
+      .replace(/(\d{5})(\d)/, '$1-$2')
+      .replace(/(-\d{3})\d+?$/, '$1');
 
-}
+  }
 
-function validarCamposCliente() {
+  function validarCamposCliente() {
 
     if (razaoSocialInput.value.length == 0) {
       razaoSocialErro.innerHTML = "Insira a razão social";
@@ -421,110 +421,110 @@ function validarCamposCliente() {
     }
 
     if (razaoSocialOK && cnpjOK && nomeRepresentanteOK && cpfRepresentanteOK && cepOK && logradouroOK && numeroEnderecoOK && bairroOK && estadoOK && cidadeOK) {
-      window.location.href="dashboard.html";
+      window.location.href = "dashboard.html";
     }
-}
+  }
 
-} catch (e) {}
+} catch (e) { }
 
 try {
 
-let formFornecedores = document.getElementById('form-fornecedores');
+  let formFornecedores = document.getElementById('form-fornecedores');
 
-let razaoSocialOK = false;
-let cnpjOK = false;
-let cepOK = false;
-let logradouroOK = false;
-let numeroEnderecoOK = false;
-let bairroOK = false;
-let estadoOK = false;
-let cidadeOK = false;
+  let razaoSocialOK = false;
+  let cnpjOK = false;
+  let cepOK = false;
+  let logradouroOK = false;
+  let numeroEnderecoOK = false;
+  let bairroOK = false;
+  let estadoOK = false;
+  let cidadeOK = false;
 
-let razaoSocialInput = document.getElementById('razao-social');
-let cnpjInput = document.getElementById('cnpj');
-let cepInput = document.getElementById('cep');
-let logradouroInput = document.getElementById('logradouro');
-let numeroEnderecoInput = document.getElementById('numero-endereco');
-let bairroInput = document.getElementById('bairro');
-let estadoInput = document.getElementById('estado');
-let cidadeInput = document.getElementById('cidade');
+  let razaoSocialInput = document.getElementById('razao-social');
+  let cnpjInput = document.getElementById('cnpj');
+  let cepInput = document.getElementById('cep');
+  let logradouroInput = document.getElementById('logradouro');
+  let numeroEnderecoInput = document.getElementById('numero-endereco');
+  let bairroInput = document.getElementById('bairro');
+  let estadoInput = document.getElementById('estado');
+  let cidadeInput = document.getElementById('cidade');
 
-let razaoSocialErro = document.getElementById('erro-razao-social');
-let cnpjErro = document.getElementById('erro-cnpj');
-let cepErro = document.getElementById('erro-cep');
-let logradouroErro = document.getElementById('erro-logradouro');
-let numeroEnderecoErro = document.getElementById('erro-numero-endereco');
-let bairroErro = document.getElementById('erro-bairro');
-let estadoErro = document.getElementById('erro-estado');
-let cidadeErro = document.getElementById('erro-cidade');
+  let razaoSocialErro = document.getElementById('erro-razao-social');
+  let cnpjErro = document.getElementById('erro-cnpj');
+  let cepErro = document.getElementById('erro-cep');
+  let logradouroErro = document.getElementById('erro-logradouro');
+  let numeroEnderecoErro = document.getElementById('erro-numero-endereco');
+  let bairroErro = document.getElementById('erro-bairro');
+  let estadoErro = document.getElementById('erro-estado');
+  let cidadeErro = document.getElementById('erro-cidade');
 
-formFornecedores.onsubmit = function (e) {e.preventDefault(); validarCamposFornecedor();}
+  formFornecedores.onsubmit = function (e) { e.preventDefault(); validarCamposFornecedor(); }
 
-razaoSocialInput.onkeyup = function () {
+  razaoSocialInput.onkeyup = function () {
 
-  if (razaoSocialInput.value.length == 0) {
-    razaoSocialErro.innerHTML = "Insira uma razão social";
-  } else {
-    razaoSocialErro.innerHTML = "";
-    razaoSocialOK = true;
-  }
-}
-
-logradouroInput.onkeyup = function () {
-
-  if (logradouroInput.value.length == 0) {
-    logradouroErro.innerHTML = "Insira um logradouro";
-  } else {
-    logradouroErro.innerHTML = "";
-    logradouroOK = true;
-  }
-}
-
-numeroEnderecoInput.onkeyup = function () {
-
-  if (numeroEnderecoInput.value.length == 0) {
-    numeroEnderecoErro.innerHTML = "Insira o número do endereço";
-  } else {
-    numeroEnderecoOK = true;
-    numeroEnderecoErro.innerHTML = "";
+    if (razaoSocialInput.value.length == 0) {
+      razaoSocialErro.innerHTML = "Insira uma razão social";
+    } else {
+      razaoSocialErro.innerHTML = "";
+      razaoSocialOK = true;
+    }
   }
 
-}
+  logradouroInput.onkeyup = function () {
 
-bairroInput.onkeyup = function () {
-
-  if (bairroInput.value.length == 0) {
-    bairroErro.innerHTML = "Insira um bairro";
-  } else {
-    bairroOK = true;
-    bairroErro.innerHTML = "";
+    if (logradouroInput.value.length == 0) {
+      logradouroErro.innerHTML = "Insira um logradouro";
+    } else {
+      logradouroErro.innerHTML = "";
+      logradouroOK = true;
+    }
   }
 
-}
+  numeroEnderecoInput.onkeyup = function () {
 
-estadoInput.onkeyup = function () {
+    if (numeroEnderecoInput.value.length == 0) {
+      numeroEnderecoErro.innerHTML = "Insira o número do endereço";
+    } else {
+      numeroEnderecoOK = true;
+      numeroEnderecoErro.innerHTML = "";
+    }
 
-  if (estadoInput.value.length == 0) {
-    estadoErro.innerHTML = "Insira um estado";
-  } else {
-    estadoOK = true;
-    estadoErro.innerHTML = "";
   }
 
-}
+  bairroInput.onkeyup = function () {
 
-cidadeInput.onkeyup = function () {
+    if (bairroInput.value.length == 0) {
+      bairroErro.innerHTML = "Insira um bairro";
+    } else {
+      bairroOK = true;
+      bairroErro.innerHTML = "";
+    }
 
-  if (cidadeInput.value.length == 0) {
-    cidadeErro.innerHTML = "Insira uma cidade";
-  } else {
-    cidadeOK = true;
-    cidadeErro.innerHTML = "";
   }
 
-}
+  estadoInput.onkeyup = function () {
 
-function mascaraCnpj() {
+    if (estadoInput.value.length == 0) {
+      estadoErro.innerHTML = "Insira um estado";
+    } else {
+      estadoOK = true;
+      estadoErro.innerHTML = "";
+    }
+
+  }
+
+  cidadeInput.onkeyup = function () {
+
+    if (cidadeInput.value.length == 0) {
+      cidadeErro.innerHTML = "Insira uma cidade";
+    } else {
+      cidadeOK = true;
+      cidadeErro.innerHTML = "";
+    }
+
+  }
+
+  function mascaraCnpj() {
 
     if (cnpjInput.value.length == 0) {
       cnpjErro.innerHTML = "Insira um CNPJ";
@@ -534,19 +534,19 @@ function mascaraCnpj() {
     }
 
     cnpjInput.value = cnpjInput.value
-    .replace(/\D+/g, '')
-    .replace(/(\d{2})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1.$2')
-    .replace(/(\d{3})(\d)/, '$1/$2')
-    .replace(/(\d{4})(\d)/, '$1-$2')
-    .replace(/(-\d{2})\d+?$/, '$1');
+      .replace(/\D+/g, '')
+      .replace(/(\d{2})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1/$2')
+      .replace(/(\d{4})(\d)/, '$1-$2')
+      .replace(/(-\d{2})\d+?$/, '$1');
 
-}
+  }
 
-cnpjInput.onkeyup = function () {mascaraCnpj();}
-cepInput.onkeyup = function () {mascaraCep();}
+  cnpjInput.onkeyup = function () { mascaraCnpj(); }
+  cepInput.onkeyup = function () { mascaraCep(); }
 
-function mascaraCep() {
+  function mascaraCep() {
 
     if (cepInput.value.length == 0) {
       cepErro.innerHTML = "Insira um CEP";
@@ -556,13 +556,13 @@ function mascaraCep() {
     }
 
     cepInput.value = cepInput.value
-    .replace(/\D+/g, '')
-    .replace(/(\d{5})(\d)/, '$1-$2')
-    .replace(/(-\d{3})\d+?$/, '$1');
+      .replace(/\D+/g, '')
+      .replace(/(\d{5})(\d)/, '$1-$2')
+      .replace(/(-\d{3})\d+?$/, '$1');
 
-}
+  }
 
-function validarCamposFornecedor() {
+  function validarCamposFornecedor() {
 
     if (razaoSocialInput.value.length == 0) {
       razaoSocialErro.innerHTML = "Insira a razão social";
@@ -597,10 +597,10 @@ function validarCamposFornecedor() {
     }
 
     if (razaoSocialOK && cepOK && logradouroOK && numeroEnderecoOK && bairroOK && estadoOK && cidadeOK) {
-      window.location.href="dashboard.html";
+      window.location.href = "dashboard.html";
     } else {
-      console.log(razaoSocialOK,cepOK,logradouroOK,numeroEnderecoOK,bairroOK,estadoOK,cidadeOK);
+      console.log(razaoSocialOK, cepOK, logradouroOK, numeroEnderecoOK, bairroOK, estadoOK, cidadeOK);
     }
-}
+  }
 
-} catch (e) {}
+} catch (e) { }
