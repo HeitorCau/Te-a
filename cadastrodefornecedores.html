@@ -2,7 +2,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.css">
   <link rel="stylesheet" href="./css/cadastrodefornecedores.css">
   <title>Teça - Cadastro de Fornecedores</title>
 </head>
@@ -12,94 +11,94 @@
     <nav class="navbar">
       <img src="./assets/logo.png" alt="Logo Teça">
       <ul class="list">
-
-        <li class="list-item active">
+        <li class="list-item">
           <a href="dashboard.html">Dashboard</a>
         </li>
-
-        <li class="list-item">
-          <a href="fornecedores.html">Fornecedores</a>
+        <li class="list-item active">
+          <a href="#">Fornecedores</a>
         </li>
-
         <li class="list-item">
-          <a href="clientes.html">Clientes</a>
+          <a href="cadastrodeclientes.html">Clientes</a>
         </li>
-
         <li class="list-item">
           <a href="#">Relatórios</a>
         </li>
-
         <li class="list-item">
           <a href="#">Módulos</a>
         </li>
-
       </ul>
     </nav>
 
-      <main class="content">
-          <form id="form-fornecedores" action="dashboard.html" class="form-fornecedores">
+    <main class="content">
+      <h1>Cadastro de Fornecedores</h1>
+      <form id="form-fornecedores" method="POST" class="form-fornecedores" autocomplete="off">
+        <div class="input-group razao-social">
+          <label for="razao-social">Razão Social</label>
+          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras, espaços e números são permitidos"
+            id="razao-social" type="text" name="razao-social">
+          <span id="erro-razao-social" class="erro"></span>
+        </div>
 
-            <h1>Cadastro de Fornecedores</h1>
+        <div class="input-group cnpj">
+          <label for="cnpj">CNPJ</label>
+          <input required id="cnpj" pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}.[0-9]{4}.[0-9]{2}" type="text" name="cnpj"
+            title="Escreva um CNPJ válido">
+          <span id="erro-cnpj" class="erro"></span>
+        </div>
 
-            <div class="input-group razao-social">
-              <label for="razao-social">Razão Social</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras, espaços e números são permitidos" id="razao-social" type="text" name="razao-social">
-              <span id="erro-razao-social" class="erro"></span>
-            </div>
+        <div class="input-group cep">
+          <label for="cep">CEP</label>
+          <input required pattern="[0-9]{5}.[0-9]{3}" title="Escreva um CEP válido" id="cep" type="text" name="cep">
+          <span id="erro-cep" class="erro"></span>
+        </div>
 
-            <div class="input-group cnpj">
-              <label for="cnpj">CNPJ</label>
-              <input required id="cnpj" pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}.[0-9]{4}.[0-9]{2}" type="text" name="cnpj" title="Escreva um CNPJ válido">
-              <span id="erro-cnpj" class="erro"></span>
-            </div>
+        <div class="input-group logradouro">
+          <label for="logradouro">Logradouro</label>
+          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="logradouro"
+            type="text" name="logradouro">
+          <span id="erro-logradouro" class="erro"></span>
+        </div>
 
-            <div class="input-group cep">
-              <label for="cep">CEP</label>
-              <input required pattern="[0-9]{5}.[0-9]{3}" title="Escreva um CEP válido" id="cep" type="text" name="cep">
-              <span id="erro-cep" class="erro"></span>
-            </div>
+        <div class="input-group numero-endereco">
+          <label for="numero-endereco">Número</label>
+          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="numero-endereco"
+            type="text" name="numero-endereco">
+          <span id="erro-numero-endereco" class="erro"></span>
+        </div>
 
-            <div class="input-group logradouro">
-              <label for="logradouro">Logradouro</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="logradouro" type="text" name="logradouro">
-              <span id="erro-logradouro" class="erro"></span>
-            </div>
+        <div class="input-group bairro">
+          <label for="bairro">Bairro</label>
+          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="bairro"
+            type="text" name="bairro">
+          <span id="erro-bairro" class="erro"></span>
+        </div>
 
-            <div class="input-group numero-endereco">
-              <label for="numero-endereco">Número</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos"  id="numero-endereco" type="text" name="numero-endereco">
-              <span id="erro-numero-endereco" class="erro"></span>
-            </div>
+        <div class="input-group estado">
+          <label for="estado">Estado</label>
+          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="estado"
+            type="text" name="estado">
+          <span id="erro-estado" class="erro"></span>
+        </div>
 
-            <div class="input-group bairro">
-              <label for="bairro">Bairro</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="bairro" type="text" name="bairro">
-              <span id="erro-bairro" class="erro"></span>
-            </div>
+        <div class="input-group cidade">
+          <label for="cidade">Cidade</label>
+          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="cidade"
+            type="text" name="cidade">
+          <span id="erro-cidade" class="erro"></span>
+        </div>
 
-            <div class="input-group estado">
-              <label for="estado">Estado</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="estado" type="text" name="estado">
-              <span id="erro-estado" class="erro"></span>
-            </div>
+        <div class="input-group complemento">
+          <label for="complemento">Complemento</label>
+          <input pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" type="text" name="complemento">
+        </div>
 
-            <div class="input-group cidade">
-              <label for="cidade">Cidade</label>
-              <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="cidade" type="text" name="cidade">
-              <span id="erro-cidade" class="erro"></span>
-            </div>
-
-            <div class="input-group complemento">
-              <label for="complemento">Complemento</label>
-              <input pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" type="text" name="complemento">
-            </div>
-
-              <button class="btn cancelar" type="button" name="button">Cancelar</button>
-              <button class="btn-primary btn cadastrar" type="submit" name="button">Cadastrar</button>
+        <button class="btn cancelar" type="button" name="cancelButton">Cancelar</button>
+        <button class="btn-primary btn cadastrar" type="submit" name="registerButton">Cadastrar</button>
 
       </form>
     </main>
-</div>
+  </div>
   <script src="./js/index.js" type="text/javascript"></script>
 </body>
+
 </html>
