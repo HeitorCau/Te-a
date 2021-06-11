@@ -16,16 +16,16 @@
 
 html {
   font-family: 'Poppins', sans-serif;
-  font-display: swap;
 }
 
 .container {
   display: flex;
   flex-direction: row;
+  height: 100vh;
 }
 
 .navbar {
-  flex: 1 0 0;
+  flex: 1 1 auto;
   background-color: var(--primary);
   display: flex;
   flex-direction: column;
@@ -35,7 +35,8 @@ html {
 }
 
 .content {
-  flex: 10 0 0;
+  flex: 10 10 auto;
+  height: 100%;
 }
 
 .list {
@@ -55,17 +56,19 @@ html {
   text-decoration: underline;
 }
 
-.content-img {
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.content-caixa {
-  display:flex;
-  flex-flow: row wrap;
-  margin-top: 5vh;
-  margin-left: 10%;
-  width: 60%;
+@media screen and (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+  .navbar {
+    flex-direction: column;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .list-item {
+    padding: 5px;
+  }
 }
