@@ -11,25 +11,11 @@
   background-color: black;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-start;
-  padding-left: 10em;
 }
 
-@media (max-width: 900px) {
-  .content {
-    padding-left: 1em;
-  }
-  .table__prices {
-    display: none;
-  }
-  html {
-    font-size: 12px;
-  }
-  .table {
-    width: 90%!important;
-  }
-}
+
 
 h2, li, li > a {
   color: white
@@ -49,5 +35,41 @@ li {
 
 .avaliable-modules {
   width: 100%;
+  padding-left: 10em;
+
+}
+
+.adquired-modules {
+  margin-top: 10em;
+  padding-left: 10em;
+
+}
+
+footer {
+  color: white;
+  align-self: center;
+}
+
+@media (max-width: 900px) {
+  .avaliable-modules {
+    padding-left: 3em;
+  }
+  .adquired-modules {
+    padding-left: 3em;
+  
+  }
+  .table__prices {
+    display: none;
+  }
+  html {
+    font-size: 12px;
+  }
+  .table {
+    width: 90%;
+  }
+
+  .adquired-modules {
+    margin-top: 3em;
+  }
 }
 

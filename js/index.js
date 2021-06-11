@@ -39,10 +39,10 @@ function validateLogin(namePar,passwordPar) {
 
 try {
 
-let numero = document.getElementById('numero');
-let nome = document.getElementById('nome');
-let cvv = document.getElementById('cvv');
-let validade = document.getElementById('validade');
+let numero = document.getElementById('numeroCartao');
+let nome = document.getElementById('nomeCartao');
+let cvv = document.getElementById('cvvCartao');
+let validade = document.getElementById('validadeCartao');
 
 let formPagamento = document.getElementById('form-pagamento');
 
