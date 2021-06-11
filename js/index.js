@@ -1,3 +1,39 @@
+// try {
+  let nomeInput = document.getElementById("nome");
+  let senhaInput = document.getElementById('senha');
+  let mensagemErro = document.getElementById('mensagemErro');
+
+  nomeInput.onkeyup = function () { mensagemErro.innerHTML = "" }
+  senhaInput.onkeyup = function () { mensagemErro.innerHTML = "" }
+  document.getElementById("form-login").onsubmit = function(e) { e.preventDefault(); validateLogin(nomeInput.value,senhaInput.value);}
+
+function validateLogin(namePar,passwordPar) {
+
+  let users = [
+                {"name":"Heitor","password":"88116"},
+                {"name":"José","password":"89295"},
+                {"name":"Leandro","password":"88768"},
+                {"name":"Lucas","password":"86696"},
+                {"name":"Vinicius","password":"87985"}
+              ];
+
+  let erro = "";
+
+  for (var i = 0; i < users.length; i++) {
+    if (users[i].name == namePar && users[i].password == passwordPar) {
+      return  window.location.href="dashboard.html";
+    } else if (users[i].name != namePar) {
+      erro = "Nome de usuário incorreto";
+    } else {
+      erro = "Senha incorreta";
+      break;
+    }
+  }
+  mensagemErro.innerHTML = erro;
+}
+
+// } catch (e) {}
+
 try {
 
 let numero = document.getElementById('numero');

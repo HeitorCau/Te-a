@@ -12,17 +12,19 @@
   <main>
     <section class="container">
 
-      <form class="form-login" action="index.html" method="post">
+      <form id="form-login" class="form-login" action="dashboard.html" method="post">
 
         <img id="index-logo" src="./assets/logo.png" alt="Teçá">
 
         <div class="label-div">
-          <input type="email" name="email" placeholder="Email">
+          <input id="nome" type="text" name="nome" placeholder="Nome">
         </div>
 
         <div class="label-div">
-          <input type="password" name="senha" placeholder="Senha">
+          <input id="senha" type="password" name="senha" placeholder="Senha">
         </div>
+
+        <span id="mensagemErro" class="erro"></span>
 
         <div class="label-div">
           <a href="#">Esqueceu sua senha?</a>
@@ -39,5 +41,6 @@
     </section>
 
   </main>
+  <script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>
