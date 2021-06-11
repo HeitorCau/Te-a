@@ -382,7 +382,7 @@ function validarCamposCliente() {
     }
 
     if (razaoSocialOK && cnpjOK && nomeRepresentanteOK && cpfRepresentanteOK && cepOK && logradouroOK && numeroEnderecoOK && bairroOK && estadoOK && cidadeOK) {
-      window.location.href="cliente.html";
+      window.location.href="dashboard.html";
     }
 }
 
