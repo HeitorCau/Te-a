@@ -34,7 +34,7 @@
       <form id="form-fornecedores" method="POST" class="form-fornecedores" autocomplete="off">
         <div class="input-group razao-social">
           <label for="razao-social">Razão Social</label>
-          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras, espaços e números são permitidos"
+          <input required required pattern="[a-zA-Z0-9\u00C0-\u00FF]]*$+/i" title="Somente letras, espaços e números são permitidos"
             id="razao-social" type="text" name="razao-social">
           <span id="erro-razao-social" class="erro"></span>
         </div>
@@ -54,7 +54,7 @@
 
         <div class="input-group logradouro">
           <label for="logradouro">Logradouro</label>
-          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="logradouro"
+          <input required required pattern="[a-zA-Z0-9\u00C0-\u00FF]]*$+/i" title="Somente letras e números são permitidos" id="logradouro"
             type="text" name="logradouro">
           <span id="erro-logradouro" class="erro"></span>
         </div>
@@ -68,28 +68,28 @@
 
         <div class="input-group bairro">
           <label for="bairro">Bairro</label>
-          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="bairro"
+          <input required required pattern="[a-zA-Z0-9\u00C0-\u00FF]]*$+/i" title="Somente letras e números são permitidos" id="bairro"
             type="text" name="bairro">
           <span id="erro-bairro" class="erro"></span>
         </div>
 
         <div class="input-group estado">
           <label for="estado">Estado</label>
-          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="estado"
+          <input required required pattern="[a-zA-Z0-9\u00C0-\u00FF]]*$+/i" title="Somente letras e números são permitidos" id="estado"
             type="text" name="estado">
           <span id="erro-estado" class="erro"></span>
         </div>
 
         <div class="input-group cidade">
           <label for="cidade">Cidade</label>
-          <input required pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" id="cidade"
+          <input required required pattern="[a-zA-Z0-9\u00C0-\u00FF]]*$+/i" title="Somente letras e números são permitidos" id="cidade"
             type="text" name="cidade">
           <span id="erro-cidade" class="erro"></span>
         </div>
 
         <div class="input-group complemento">
           <label for="complemento">Complemento</label>
-          <input pattern="[a-zA-Z0-9]*$" title="Somente letras e números são permitidos" type="text" name="complemento">
+          <input pattern="[a-zA-Z0-9\u00C0-\u00FF]]*$+/i" title="Somente letras e números são permitidos" type="text" name="complemento">
         </div>
 
         <button class="btn cancelar" type="button" name="cancelButton">Cancelar</button>

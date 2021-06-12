@@ -79,6 +79,7 @@ try {
 
     if (campo.value.length == 0) {
       campoCartao.innerHTML = "0000 0000 0000 0000";
+      campoErro.innerHTML = "Insira o número do cartão";
     } else {
       campoCartao.innerHTML = campo.value;
     }
@@ -92,6 +93,7 @@ try {
       .replace(/\d+/g, '');
     if (campo.value.length == 0) {
       campoCartao.innerHTML = "Jhon Doe";
+      campoErro.innerHTML = "Insira o nome no cartão";
     } else {
       campoCartao.innerHTML = campo.value;
     }
@@ -108,6 +110,7 @@ try {
 
     if (campo.value.length == 0) {
       campoCartao.innerHTML = "12/21";
+      campoErro.innerHTML = "Insira a validade do cartão";
     } else {
       campoCartao.innerHTML = campo.value;
     }
@@ -121,6 +124,7 @@ try {
     campo.value = campo.value.replace(/\D+/g, '');
     if (campo.value.length == 0) {
       campoCartao.innerHTML = "123";
+      campoErro.innerHTML = "Insira o código de validação do cartão";
     } else {
       campoCartao.innerHTML = campo.value;
     }
@@ -128,23 +132,30 @@ try {
   }
 
   function verificarCamposPagamento(nome, nomeErro, numero, numeroErro, validade, validadeErro, cvv, cvvErro) {
-
+  let erro = 0;
     if (nome.value.length == 0) {
+      erro++;
       nomeErro.innerHTML = "Insira o nome no cartão";
     }
 
     if (numero.value.length == 0) {
-      numeroErro.innerHTML = "Insira o numero do cartão";
+      erro++;
+      numeroErro.innerHTML = "Insira o número do cartão";
     }
 
     if (validade.value.length == 0) {
-      validadeErro.innerHTML = "Insira o validade do cartão";
+      erro++;
+      validadeErro.innerHTML = "Insira a validade do cartão";
     }
 
     if (cvv.value.length == 0) {
+      erro++;
       cvvErro.innerHTML = "Insira o código de validação do cartão";
     }
 
+    if (erro == 0) {
+      window.location.href="venda.html"
+    }
   }
 
 } catch (e) { }
